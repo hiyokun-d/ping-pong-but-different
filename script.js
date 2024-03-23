@@ -27,8 +27,8 @@ class Ball {
     this.radius = 5
     this.speed = 10
     this.velocity = {
-      x: 1,
-      y: 0,
+      x: Math.floor(Math.random() * 2 - 1),
+      y: Math.floor(Math.random() * 2 - 1),
     }
   }
 
@@ -100,8 +100,8 @@ function game() {
   right.forEach((k, i) => {
     k.draw()
 
-    if (RectCircleColliding(ballLeft, k) && k.c === "black") {
-      
+    if (RectCircleColliding(ballLeft, k) && k.c === "lightgray") {
+      ballLeft.velocity.x = -ballLeft.velocity.x
       right[i] = new Rectangle(k.x, k.y, "gray")
     }
   })
